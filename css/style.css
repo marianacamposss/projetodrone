@@ -1,0 +1,440 @@
+/*
+ * --------------------------------
+ * CSS Otimizado para AGROVANT
+ * --------------------------------
+ */
+
+/* Variáveis de Cores e Fontes */
+:root {
+    --cor-primaria: #4CAF50;
+    --cor-secundaria: #2E7D32;
+    --cor-fundo: #121212;
+    --cor-fundo-claro: #1A1A1A;
+    --cor-fundo-card: #222;
+    --cor-texto: #f5f5f5;
+    --cor-cinza: #b0b0b0;
+    --fonte-primaria: 'Roboto', sans-serif;
+    --radius: 8px;
+    --transicao: 0.3s ease;
+}
+
+/* Reset e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-primaria);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+h1, h2 {
+    color: var(--cor-texto);
+    font-weight: 700;
+}
+
+a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    transition: var(--transicao);
+}
+
+a:hover {
+    color: var(--cor-primaria);
+}
+
+/*
+ * --------------------------------
+ * Cabeçalho e Navegação
+ * --------------------------------
+ */
+header {
+    background-color: var(--cor-fundo);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo span {
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--cor-primaria);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-primaria);
+    transition: width var(--transicao);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.agende-btn {
+    background: var(--cor-primaria);
+    color: var(--cor-texto);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transicao);
+}
+.agende-btn:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+/*
+ * --------------------------------
+ * Banner Principal - CORRIGIDO
+ * --------------------------------
+ */
+.banner {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Sobreposição com maior opacidade para o texto se destacar */
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+    z-index: -1;
+}
+
+.banner-text {
+    text-align: center;
+    padding: 0 20px;
+}
+/* Cor do título principal branca para máximo contraste */
+.banner-text h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    animation: fadeInDown 1s ease-in-out;
+    color: #FFFFFF;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Sombra para melhorar a leitura */
+}
+/* Cor do subtítulo para um bom contraste */
+.banner-text p {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #ffffff; /* Tom de branco mais suave */
+    animation: fadeInUp 1s ease-in-out;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra para melhorar a leitura */
+}
+
+.btn-primario {
+    background: var(--cor-primaria);
+    border: none;
+    color: var(--cor-texto);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: var(--transicao);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.btn-primario:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background: transparent;
+    border: 2px solid var(--cor-primaria);
+    color: var(--cor-primaria);
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+.btn-secundario:hover {
+    background: var(--cor-primaria);
+    color: var(--cor-texto);
+}
+
+/*
+ * --------------------------------
+ * Seção de Destaque
+ * --------------------------------
+ */
+.destaque {
+    text-align: center;
+    background-color: var(--cor-fundo-claro);
+}
+
+.destaque h2 {
+    font-size: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto 15px;
+}
+.emoji-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--cor-primaria);
+}
+.destaque-btns {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/*
+ * --------------------------------
+ * Seção de Vídeo
+ * --------------------------------
+ */
+.video-section {
+    text-align: center;
+    background-color: var(--cor-fundo);
+}
+.drone-video {
+    width: 100%;
+    max-width: 900px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+/*
+ * --------------------------------
+ * Seção de Benefícios (Cards)
+ * --------------------------------
+ */
+.beneficios {
+    background-color: var(--cor-fundo-claro);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.card {
+    flex: 1 1 280px;
+    max-width: 350px;
+    background: var(--cor-fundo-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform var(--transicao), box-shadow var(--transicao);
+}
+.card:hover {
+    transform: translateY(-10px);
+    background: var(--cor-primaria);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/*
+ * --------------------------------
+ * Seção de Prova Social e Formulário
+ * --------------------------------
+ */
+.prova-social-e-formulario {
+    background: var(--cor-fundo);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+}
+
+.coluna {
+    flex: 1;
+    min-width: 300px;
+}
+
+.titulo-secao {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Depoimento */
+.depoimento-bloco {
+    background: var(--cor-fundo-claro);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.foto-cliente {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--cor-primaria);
+}
+
+.texto-depoimento {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--cor-cinza);
+    margin-bottom: 15px;
+}
+
+.autor-depoimento {
+    display: block;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+.avaliacao {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #ffd700; /* Estrela dourada */
+}
+
+.avaliacao p {
+    font-size: 0.9rem;
+    color: var(--cor-cinza);
+    margin-top: 5px;
+}
+
+/* Formulário */
+.formulario-bloco {
+    padding: 40px 0;
+}
+
+.formulario-bloco .desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--cor-cinza);
+}
+
+.formulario {
+    margin-top: 30px;
+    background: var(--cor-fundo-claro);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.input-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-grupo label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--cor-texto);
+}
+
+.input-grupo input {
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    outline: none;
+    transition: border var(--transicao);
+}
+
+.input-grupo input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+/*
+ * --------------------------------
+ * Animações e Responsividade
+ * --------------------------------
+ */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    .banner {
+        height: 400px;
+    }
+    .banner-text h1 {
+        font-size: 2.5rem;
+    }
+    .banner-text p {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 50px 20px;
+    }
+    .destaque h2 {
+        font-size: 2rem;
+    }
+    .prova-social-e-formulario .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .depoimento-bloco, .formulario-bloco {
+        padding: 30px;
+    }
+}
